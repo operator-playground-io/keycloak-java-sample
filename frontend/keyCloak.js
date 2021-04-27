@@ -61,7 +61,7 @@ const authenticate = async (request, response, user, password) => {
     let token = await getAccessToken(user, password);
 
     if (token) {
-      request.session.token = token;
+      request.session.token = token.access_token; //token;
       request.session.isAuthenticated = true;
       request.session.isAdmin = false;
       request.session.user = { name: user, email: "Unknown" };

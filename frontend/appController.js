@@ -109,7 +109,7 @@ const getCourses = async (req, res, next) => {
   console.log("url: ", url);
 
   try {
-    let token =  req.session.token.access_token;
+    let token =  req.session.token;
 
     const response = await axios.get(
       url,
@@ -182,7 +182,7 @@ const deleteCourse = async (req, res, next) => {
   console.log("url: ", url);
 
   try {
-    let token = req.session.token.access_token;
+    let token = req.session.token;
 
     const response = await axios.delete(
       url,
