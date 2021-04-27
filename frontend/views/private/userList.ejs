@@ -1,0 +1,20 @@
+<div>
+    <!-- <h2>Users</h2> -->
+
+    <div class="items">
+        <% if (data) { 
+            data.forEach( user => { %>
+
+        <div>
+            <div class="card-body" style="padding-top: 0.5rem;padding-bottom: 0;">
+              <h5 class="card-title"><%= user.name %></h5>
+              <p class="card-text"><%= user.email %></p>
+              <hr />
+            </div>
+          </div>
+        <%
+        });
+    } %>
+    </div>
+  </div>
+

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: edge-keycloak-java-backend-service
+spec:
+  type: NodePort
+  selector:
+    app: edge-keycloak-java-backend
+  ports:
+  - port: 8090
+    targetPort: 8090
+    nodePort: 30690

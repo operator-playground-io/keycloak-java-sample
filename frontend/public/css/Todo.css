@@ -1,0 +1,45 @@
+.Todo {
+    /* display: flex; */
+    margin: 0 -3rem 4px;
+    padding:  1.1rem 3rem;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.Todo.title {
+    color:darkcyan;
+}
+
+.Todo-task {
+    opacity: 0.6;
+    font-size: 1.5rem;
+    color: aqua;
+}
+
+.Todo-details {
+    opacity: 0.6;
+    font-size: 1rem;
+    color: cadetblue;
+}
+
+.Todo-task.completed {
+    text-decoration: line-through;
+}
+
+/* .Todo-task.completed::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -0.5rem;
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+
+}
+
+.Todo .Completed {
+    color: lightgray;
+    text-decoration: line-through;
+} */

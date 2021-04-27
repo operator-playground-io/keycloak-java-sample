@@ -1,0 +1,24 @@
+<div>
+    <!-- <h2>Posts</h2> -->
+
+    <div class="items">
+        <% if (data) { 
+            data.forEach( course => { %>
+
+        <div>
+            <div class="card-body" style="padding-top: 0.5rem;padding-bottom: 0;">
+              <h5 class="card-title"><%= course.name %> (<%= course.code %>)</h5>
+              <p class="card-text"><%= course.modules %></p>
+              <form method="POST" action="/course_del">
+                <input type="hidden" name="courseId" value=<%=course.id %> />
+                <button type="submit" class="btn btn-danger">Delete course</button>
+              </form>
+              <hr />
+            </div>
+          </div>
+        <%
+        });
+    } %>
+    </div>
+  </div>
+

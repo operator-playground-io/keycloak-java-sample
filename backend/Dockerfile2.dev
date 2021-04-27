@@ -1,0 +1,47 @@
+# FROM openjdk:16-alpine3.13
+
+# WORKDIR /app
+
+# # RUN apt-get update && apt-get install -y maven
+
+# # COPY .mvn/ .mvn
+# COPY mvnw ./
+# COPY pom.xml ./
+# # RUN ./mvnw dependency:go-offline
+
+# COPY . .
+# # COPY src ./src
+
+# RUN ./mvnw clean package
+
+# CMD ["./mvnw", "spring-boot:build-image"]
+# CMD ["ls", "-al"]
+# CMD ["./mvnw", "spring-boot:run"]
+# ENTRYPOINT [ "sh", "-c", "java -jar ./target/course-managment-1.0.0-SNAPSHOT.jar" ]
+
+
+
+# FROM adoptopenjdk:11-jre-hotspot as builder
+# WORKDIR application
+# ARG JAR_FILE=target/*.jar
+# COPY ${JAR_FILE} application.jar
+# RUN java -Djarmode=layertools -jar application.jar extract
+
+# FROM adoptopenjdk:11-jre-hotspot
+# WORKDIR application
+# COPY --from=builder application/dependencies/ ./
+# COPY --from=builder application/snapshot-dependencies/ ./
+# COPY --from=builder application/resources/ ./
+# COPY --from=builder application/application/ ./
+# ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+
+
+FROM maven:3.8.1-adoptopenjdk-8 as Maven
+
+WORKDIR /app
+
+COPY . .
+
+CMD ["mvn", "spring-boot:run"]
+# ENTRYPOINT [ "sh", "-c", "java -jar ./target/course-managment-1.0.0-SNAPSHOT.jar" ]
+

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edge-keycloak-java-backend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: edge-keycloak-java-backend
+  template:
+    metadata:
+      labels:
+        app: edge-keycloak-java-backend
+    spec:
+      containers:
+      - name: edge-keycloak-java-backend
+        image: edge-keycloak-java-backend:1.0
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8090

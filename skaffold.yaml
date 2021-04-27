@@ -1,0 +1,22 @@
+apiVersion: skaffold/v2beta7
+kind: Config
+metadata:
+  name: keycloak-java-example
+build:
+  artifacts:
+  - image: edge-keycloak-java-backend
+    context: ./backend
+    sync:
+      manual:
+      - src: './backend/*'
+        dest: /app/*
+  - image: edge-keycloak-java-frontend
+    context: ./frontend
+    sync:
+      manual:
+      - src: './frontend/*'
+        dest: /app/*
+deploy:
+  kubectl:
+    manifests:
+      - ./k8s/*
