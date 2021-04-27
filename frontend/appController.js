@@ -230,14 +230,17 @@ const getAccessToken = async (req, res, next) => {
 
   let token;
   try {
-    token = await keycloak.getAccessToken(user, password);
+    entireToken = await keycloak.getAccessToken(user, password);
+    if ( entireToken ) {
+      token = entireToken.access_token;
+    }
     console.log("user: ", user, " token: ", token);
   } catch (error) {
     console.log("An error occured when gettting access token for user: ", error);
     return res.status(403).send({errorMsg:error.message});
   }
 
-  return res.send(token);
+  return res.send({token});
 };
 
 const getAccessDeniedPage = async (req, res, next) => {
