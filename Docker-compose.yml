@@ -38,13 +38,10 @@ services:
       #using the external IP for keycloak is working fine
       # - AUTH_SERVER_URL=http://172.17.208.1:8080/auth/
       # - AUTH_SERVER_URL=http://localhost:8080/auth/
-      - SERVER_URL=http://192.168.1.11:8090/courses
-      # - SERVER_URL=http://172.23.192.1:8090/courses   
+      - BACKEND_URL=http://192.168.1.11:8090/courses
+      # - BACKEND_URL=http://172.23.192.1:8090/courses   
     ports: 
       - '3000:3000'
     depends_on: 
       - backend
-# networks: 
-#   default:
-#     external:
-#       name: dockernet
+
