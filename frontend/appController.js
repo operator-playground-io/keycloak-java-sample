@@ -6,8 +6,8 @@ const e = require("express");
 
 const TITLE = "Keycloak demo";
 
-const serverURL = process.env.SERVER_URL;
-console.log('serverURL: ', serverURL);
+const backendURL = process.env.BACKEND_URL;
+console.log('backendURL: ', backendURL);
 
 let ALWAYS_CONNECTED = process.env.ALWAYS_CONNECTED;
 if ( ALWAYS_CONNECTED !== '' && ALWAYS_CONNECTED === 'true' ) {
@@ -105,7 +105,7 @@ const getCourses = async (req, res, next) => {
   console.log("request to /courses  - the user IS authenticated");
   console.log("Session: ", req.session);
 
-  const url = serverURL;
+  const url = backendURL;
   console.log("url: ", url);
 
   try {
@@ -178,7 +178,7 @@ const deleteCourse = async (req, res, next) => {
   const courseId = req.body.courseId;
   console.log("trying to delete course: ", courseId);
 
-  const url = `${serverURL}/${courseId}`;
+  const url = `${backendURL}/${courseId}`;
   console.log("url: ", url);
 
   try {
